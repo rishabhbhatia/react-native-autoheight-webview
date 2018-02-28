@@ -133,13 +133,10 @@ export default class AutoHeightWebView extends PureComponent {
         }
       });
     }
-    console.log('>>>', navState);
     Linking.canOpenURL(navState.url).then((supported) => {
         if (supported) {
             this.webview.stopLoading();
           Linking.openURL(navState.url);
-        } else {
-          console.log(`Don't know how to open URI: ${  navState.url}`);
         }
         return false;
       });
