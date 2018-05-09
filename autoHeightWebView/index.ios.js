@@ -136,7 +136,9 @@ export default class AutoHeightWebView extends PureComponent {
     Linking.canOpenURL(navState.url).then((supported) => {
         if (supported) {
             this.webview.stopLoading();
-          Linking.openURL(navState.url);
+           if(navState.url.startsWith('http')) {
+              Linking.openURL(navState.url);
+           }
         }
         return false;
       });
